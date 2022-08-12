@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "roboto";
+    src: url("robot/Roboto-Regular.ttf");
+}
+
+
+.navbar li {
+    display: inline;
+
+    font-family: "roboto";
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.navbar ul {
+    width: 100%;
+
+}
+
+.navbar li a {
+    text-decoration: none;
+    padding: 8px 16px;
+    color: #000;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+li a:hover {
+    background-color: rgb(26, 208, 9);
+}
+
+body h1 {
+    color: rgb(26, 208, 9);
+}
