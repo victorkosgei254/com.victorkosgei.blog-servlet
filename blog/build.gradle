@@ -1,0 +1,59 @@
+plugins{
+
+    //---------------MAIN PROJECT PLUGINS----------
+    id 'war'
+    //---------------TEST PLUGINS------------------
+     id "net.serenity-bdd.serenity-gradle-plugin" version "3.3.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+
+    //------------------MAIN DEPENDENCIES---------------------
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+
+    //------------------TEST DEPENDENCIES--------------------
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core
+    implementation 'net.serenity-bdd:serenity-core:3.3.1'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit
+    implementation 'net.serenity-bdd:serenity-junit:3.3.1'
+
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
+    testImplementation 'net.serenity-bdd:serenity-cucumber:3.3.1'
+
+
+
+}
+
+tasks.register('deployWar',Copy){
+    dependsOn 'cleanUp'
+    doFirst{
+        println("Deploying war to Tomcat ...OK!!")
+    }
+    
+    doLast{
+        println("File Deployed successfully, it may take a while for Tomcat to reload, please wait...OK!!")
+    }
+    from "$buildDir/libs/blog.war"
+    into "/Users/victorkosgei/Libs/apache-tomcat-9.0.65/webapps"
+
+    
+}
+
+tasks.register('cleanUp',Delete){
+    doFirst{
+        println("Cleaning Up Server ....OK!!")
+    }
+        delete "/Users/victorkosgei/Libs/apache-tomcat-9.0.65/webapps/blog.war",
+                "/Users/victorkosgei/Libs/apache-tomcat-9.0.65/webapps/blog"
+    
+  
+}
+
+

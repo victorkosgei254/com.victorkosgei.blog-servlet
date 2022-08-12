@@ -1,0 +1,11 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+.gradle 
+.vscode 
+blog/bin
+blog/build
+blog/target
+history
